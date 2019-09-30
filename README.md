@@ -14,31 +14,59 @@
 
 Write code that prints all the numbers from 1 to 150, **inclusive.**
 
+let range = 1...150
+for num in range {
+    print(num)
+}
+
 ***
 ## Question 2
 
 Write code that prints all the numbers from 142 to 159, **exclusive.**
+
+let range = 142..<160
+for num in range {
+    print(num)
+}
 
 ***
 ## Question 3
 
 Write code that prints only the even numbers from 15 to 80, **inclusive.**
 
+let range = 15...80
+for num in range where num % 2 == 0 {
+    print("\(num) last digit is even")
+}
 ***
 ## Question 4
 
 Write code that prints only the odd numbers from 19 to 51, **inclusive.**
+
+let range = 19...51
+for num in range where num % 2 == 1 {
+    print("\(num) last digit is odd")
+}
 
 ***
 ## Question 5
 
 Write code that prints all the numbers that end in a **5** from 1 to 100, **exclusive.**
 
+let range  = 1..<100
+for num in range where num % 10 == 5 {
+    print("\(num) last digit is 5")
+}
+
 ***
 ## Question 6
 
 Write code that prints all the numbers that end in a 7 from 1 to 40, **inclusive.**
 
+let range = 1...40
+for num in range where num %10  == 7 {
+    print("\(num) last digit is 7")
+}
 ***
 ## Question 7
 
@@ -46,6 +74,10 @@ Given a range of numbers from 20 to 150 inclusive, print out all the numbers tha
 
 `Numbers that are divisible by 3`
 
+let range = 20...150
+for num in range where num % 3 == 0 {
+    print("\(num) is divisible by three")
+}
 ***
 ## Question 8
 
@@ -53,6 +85,12 @@ Given a range of numbers from 20 to 150 inclusive, print out all the numbers tha
 
 `Numbers that are divisible by 2 and 3`
 
+let range = 20...150
+for num in range {
+    if num % 2 == 0 && num % 3 == 0 {
+        print("\(num) is divisble by 2 or 3")
+    }
+}
 ***
 ## Question 9
 
@@ -60,12 +98,41 @@ Given a range of numbers from 20 to 150 inclusive, print out all the numbers tha
 
 `Numbers that end with a 4`
 
+let range = 20...150
+for num in range where num % 4 == 0 {
+    print("\(num) is divisible by 4")
+}
+
 ***
 ## Question 10
 
 Given a range of numbers from 20 to 150, print out all the numbers that follows these conditions:
 
 `Print out numbers: 31, 35, 40 to 60.`
+
+let range = 20...150
+for num in range {
+    switch num {
+    case 31:
+        print(31)
+    case 35:
+        print(35)
+    case 40...60:
+        print(40...60)
+    default:
+        print("")
+    }
+}
+
+
+## This prints out the numbers, however it spaces it out.
+
+## Matthew's answer: 
+
+## //for number in 20...150 {
+## //if number == 31 || number == 35 || (number > 39 && number <= 60) {
+## //    print(number) }
+## // }
 
 ***
 ## Question 11
@@ -79,7 +146,7 @@ while (i > 3) {
     i += 1
 }
 
-// Your explanation here
+// the loop will not stop running because there there is no decrementation, without it the loop is inifinite
 ```
 
 ***
@@ -88,10 +155,12 @@ while (i > 3) {
 Change the code below to make the loop stop executing when i reaches 9.
 
 ```swift
-var i = 5
+var i = 8
 
 while (i > 3) {
     i += 1
+    break
+    print(i)
 }
 ```
 
@@ -103,8 +172,9 @@ Change the code below to make the loop stop executing after it has run 1,000 tim
 ```swift
 var i = 5
 
-while (i > 3) {
+while (i > 3 && i <= 1000) {
     i += 1
+    print(i)
 }
 ```
 
@@ -116,8 +186,11 @@ Change the code below to make the loop stop executing after it has run 1,000 tim
 ```swift
 var i = 5
 
-while (i > 3) {
+while (i > 3 && i <= 1000) {
     i += 1
+    if i % 2 == 0 {
+    print(i)
+}
 }
 ```
 
@@ -127,20 +200,25 @@ while (i > 3) {
 What's the difference in syntax between the following two while loops?  Will their outputs be different?  Explain why or why not.
 
 ```swift
+// loop one
+
 var i = 1
-//loop one
+
 while i <= 10 {
     print("i = \(i)")
     i += 1
 }
 
 //loop two
+
 var i = 1
 
 repeat {
     print("i = \(i)")
     i += 1
 } while i <= 10
+
+## Answer: The while loop checks the variable first, but the repeat-while loop checks the variable after, the outputs however will still be the same because the values of the variable are the same.
 ```
 
 # Bonus =)
